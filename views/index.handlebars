@@ -2,13 +2,28 @@
 
 <html>
 <head>
-	<title>My HCI Friends</title>	
-	<meta charset="utf-8">
-	
+	<title>My HCI Friends</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/hci-friends.js"></script>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
+	<link href="css/hci-friends.css" rel="stylesheet">
+
 </head>
 
 <body>
+	<div class="container">
 	<h1>My HCI Friends</h1>
+		{{#each friends}}
+		<div class="friends">
+			<a href="/profile/{{name}}"><img src="{{imageURL}}" alt="Person" class="img-responsive"></a>
+			<a href="#" class="friend_link"><h3 class="friend_name">{{name}}</h3></a>
+			<p>{{description}}</p>
+			<hr>
+		</div>
+		{{/each}}
 
 	<form id="addFriendForm" role="form" method="get" action="/add">
 		<h3>Add a friend</h3>
@@ -22,5 +37,7 @@
 	    </div>
 	    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the friend"></input>
 	</form>
+	<br>
+</div>
 </body>
 </html>
